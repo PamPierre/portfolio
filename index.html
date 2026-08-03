@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Djibril Pierre Clavair Pamousso · Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <!-- Font Awesome (icônes) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---- Navbar ---- */
+        nav {
+            background: #0a2540;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(10, 37, 64, 0.2);
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        nav .logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+        nav .logo span {
+            color: #e67e22;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        nav ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #e67e22;
+        }
+
+        /* ---- Sections communes ---- */
+        section {
+            padding: 64px 0;
+        }
+        .section-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 48px;
+            color: #0a2540;
+        }
+        .section-title span {
+            color: #e67e22;
+        }
+
+        /* ---- Hero ---- */
+        #hero {
+            background: linear-gradient(135deg, #0a2540 0%, #1a3a5c 100%);
+            color: #fff;
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+        #hero .avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: #e67e22;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #fff;
+            box-shadow: 0 8px 30px rgba(230, 126, 34, 0.4);
+        }
+        #hero h1 {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        #hero .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #e67e22;
+            margin-bottom: 16px;
+        }
+        #hero .tagline {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 32px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .btn {
+            display: inline-block;
+            background: #e67e22;
+            color: #fff;
+            padding: 14px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .btn:hover {
+            background: #d35400;
+            transform: scale(1.03);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #e67e22;
+            color: #e67e22;
+        }
+        .btn-outline:hover {
+            background: #e67e22;
+            color: #fff;
+        }
+
+        /* ---- About ---- */
+        #about {
+            background: #fff;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+        .about-text p {
+            font-size: 1.05rem;
+            margin-bottom: 16px;
+            color: #334155;
+        }
+        .about-text .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #0a2540;
+            border-left: 4px solid #e67e22;
+            padding-left: 20px;
+            margin: 24px 0;
+        }
+        .values {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .value-item {
+            background: #f1f5f9;
+            padding: 16px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 500;
+        }
+        .value-item i {
+            color: #e67e22;
+            font-size: 1.4rem;
+            width: 30px;
+        }
+
+        /* ---- Expériences (timeline) ---- */
+        #experience {
+            background: #f8fafc;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline-item {
+            background: #fff;
+            padding: 24px 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #e67e22;
+            transition: transform 0.2s;
+        }
+        .timeline-item:hover {
+            transform: translateX(8px);
+        }
+        .timeline-item h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #0a2540;
+        }
+        .timeline-item .company {
+            font-weight: 600;
+            color: #e67e22;
+        }
+        .timeline-item .date {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin: 4px 0 8px;
+        }
+        .timeline-item ul {
+            list-style: disc;
+            padding-left: 20px;
+            color: #475569;
+        }
+
+        /* ---- Projets ---- */
+        #projects {
+            background: #fff;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 24px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+        .project-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #0a2540;
+            margin-bottom: 6px;
+        }
+        .project-card .tech {
+            font-size: 0.85rem;
+            color: #e67e22;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .project-card p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        /* ---- Compétences ---- */
+        #skills {
+            background: #f8fafc;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .skill-category {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .skill-category h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            color: #0a2540;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 6px;
+        }
+        .skill-category ul {
+            list-style: none;
+        }
+        .skill-category ul li {
+            padding: 4px 0;
+            font-size: 0.95rem;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .skill-category ul li i {
+            color: #e67e22;
+            width: 18px;
+            font-size: 0.8rem;
+        }
+
+        /* ---- Contact ---- */
+        #contact {
+            background: #fff;
+        }
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .contact-info p {
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        .contact-info i {
+            color: #e67e22;
+            width: 28px;
+            font-size: 1.2rem;
+        }
+        .contact-info .social a {
+            color: #0a2540;
+            font-size: 1.6rem;
+            margin-right: 16px;
+            transition: color 0.3s;
+        }
+        .contact-info .social a:hover {
+            color: #e67e22;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 16px;
+            background: #f8fafc;
+            transition: border-color 0.3s;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #e67e22;
+        }
+        .contact-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        .contact-form .btn {
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* ---- Footer ---- */
+        footer {
+            background: #0a2540;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 24px 0;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #e67e22;
+            text-decoration: none;
+        }
+
+        /* ---- Responsive ---- */
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            nav ul {
+                justify-content: center;
+                gap: 16px;
+            }
+            #hero h1 {
+                font-size: 2rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav>
+    <div class="container">
+        <div class="logo">Djibril<span>P.</span></div>
+        <ul>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#experience">Expériences</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section id="hero">
+    <div class="container">
+        <div class="avatar">DP</div>
+        <h1>Djibril Pierre Clavair Pamousso</h1>
+        <div class="subtitle">Ingénieur Data · Entrepreneur · Formateur</div>
+        <p class="tagline">
+            Accélérer la souveraineté numérique de l'Afrique par la data et l'intelligence artificielle.
+        </p>
+        <a href="#projects" class="btn">Découvrir mes projets</a>
+        <a href="#contact" class="btn btn-outline" style="margin-left:12px;">Me contacter</a>
+    </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">À <span>propos</span></h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    <strong>Djibril Pierre Clavair Pamousso</strong> est un ingénieur data, formateur et entrepreneur burkinabè.
+                    Co-fondateur et gérant d'<strong>Africa Data Entry</strong>, il accompagne les entreprises africaines dans leur
+                    transformation numérique grâce à une exploitation stratégique des données.
+                </p>
+                <p>
+                    Titulaire d'un Master <strong>« Données et Systèmes Connectés »</strong> de l'École des Mines de Saint-Étienne
+                    et d'une licence en informatique de l'Université Nazi Boni, il a débuté sa carrière dans le support technique
+                    avant de se spécialiser en ingénierie des données. Il a notamment occupé les fonctions de Data Engineer et
+                    de Data Science Manager chez <strong>Rocket4Sales</strong> à Lyon.
+                </p>
+                <div class="quote">
+                    « L'Afrique ne doit plus être un simple consommateur de technologies, mais un acteur à part entière de la révolution numérique mondiale. »
+                </div>
+                <p>
+                    Convaincu que la transformation numérique doit être accessible à tous, il mène un combat pour l'inclusion numérique,
+                    en particulier pour les personnes malvoyantes.
+                </p>
+            </div>
+            <div class="values">
+                <div class="value-item"><i class="fas fa-globe-africa"></i> Souveraineté numérique</div>
+                <div class="value-item"><i class="fas fa-universal-access"></i> Inclusion & accessibilité</div>
+                <div class="value-item"><i class="fas fa-chalkboard-teacher"></i> Transmission & formation</div>
+                <div class="value-item"><i class="fas fa-handshake"></i> Coopération panafricaine</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ EXPÉRIENCES ============ -->
+<section id="experience">
+    <div class="container">
+        <h2 class="section-title">Expériences <span>professionnelles</span></h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Co-fondateur &amp; Gérant – Chef de projet</h3>
+                <div class="company">Africa Data Entry</div>
+                <div class="date">Octobre 2024 – présent · Ouagadougou (Remote)</div>
+                <ul>
+                    <li>Promoteur du Grand Salon de la Data en Afrique (GSDA).</li>
+                    <li>Pilotage de solutions digitales pour la RTB (Fespaco) et le FNPSL.</li>
+                    <li>Conception et management d'applications web (CanProno).</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h3>Data Engineer &amp; Lead Développeur</h3>
+                <div class="company">Rocket4Sales</div>
+                <div class="date">Février 2022 – Décembre 2024 · Lyon</div>
+                <ul>
+                    <li>Architecture data cloud native (AWS), orchestration ETL avec Airflow.</li>
+                    <li>Optimisation de bases PostgreSQL et tableaux de bord décisionnels.</li>
+                    <li>Formation et accompagnement des nouveaux data engineers.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h3>Développeur FullStack</h3>
+                <div class="company">iMSA</div>
+                <div class="date">Avril 2021 – Septembre 2021 · Montauban</div>
+                <ul>
+                    <li>Développement d'API Spring Boot.</li>
+                    <li>Mise en place de pipelines CI/CD.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h3>Ingénieur Support IT &amp; Migration Data</h3>
+                <div class="company">IT-EXPERTIS</div>
+                <div class="date">Juillet 2019 – Août 2020 · Ouagadougou</div>
+                <ul>
+                    <li>Migration de données électorales sensibles.</li>
+                    <li>Préparation à l'intégration Odoo, modélisation de bases de données.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ PROJETS ============ -->
+<section id="projects">
+    <div class="container">
+        <h2 class="section-title">Projets <span>emblématiques</span></h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>🏆 GSDA – Grand Salon de la Data</h3>
+                <div class="tech">Événementiel · Data · Afrique</div>
+                <p>Conception et coordination de la première édition du Grand Salon de la Data en Afrique, réunissant décideurs, experts et talents autour de la souveraineté numérique.</p>
+            </div>
+            <div class="project-card">
+                <h3>🗳️ Vote Fespaco – RTB</h3>
+                <div class="tech">Python · Django · AWS</div>
+                <p>Solution de vote digital sécurisé pour le prix du grand public du Fespaco, gérée en temps réel avec une forte affluence.</p>
+            </div>
+            <div class="project-card">
+                <h3>📊 Digitalisation FNPSL</h3>
+                <div class="tech">React · Node.js · PostgreSQL</div>
+                <p>Application web sur mesure pour automatiser les campagnes marketing, gérer les leads et centraliser la communication.</p>
+            </div>
+            <div class="project-card">
+                <h3>⚽ CanProno</h3>
+                <div class="tech">React Native · Firebase</div>
+                <p>Application de pronostics sportifs avec système de récompenses, développée en mode agile.</p>
+            </div>
+            <div class="project-card">
+                <h3>☁️ Architecture Data Rocket4Sales</h3>
+                <div class="tech">AWS · Airflow · Power BI</div>
+                <p>Mise en place d'une architecture data cloud native, intégration de flux financiers (Revolut, Qonto) et tableaux de bord décisionnels.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ COMPÉTENCES ============ -->
+<section id="skills">
+    <div class="container">
+        <h2 class="section-title">Compétences <span>clés</span></h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4><i class="fas fa-tasks"></i> Gestion de projet</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Méthodologies agiles</li>
+                    <li><i class="fas fa-check-circle"></i> Planification / Sprints</li>
+                    <li><i class="fas fa-check-circle"></i> Gestion des risques</li>
+                    <li><i class="fas fa-check-circle"></i> Coordination d'équipe</li>
+                    <li><i class="fas fa-check-circle"></i> Reporting client</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4><i class="fas fa-code"></i> Data & Cloud</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Python</li>
+                    <li><i class="fas fa-check-circle"></i> SQL / PostgreSQL</li>
+                    <li><i class="fas fa-check-circle"></i> AWS (S3, MWAA)</li>
+                    <li><i class="fas fa-check-circle"></i> Power BI / Looker</li>
+                    <li><i class="fas fa-check-circle"></i> Odoo ERP</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4><i class="fas fa-tools"></i> Outils & Méthodes</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Jira / Trello</li>
+                    <li><i class="fas fa-check-circle"></i> Git / GitHub</li>
+                    <li><i class="fas fa-check-circle"></i> Spécifications fonctionnelles</li>
+                    <li><i class="fas fa-check-circle"></i> Recettage / UAT</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4><i class="fas fa-heart"></i> Soft Skills</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Leadership</li>
+                    <li><i class="fas fa-check-circle"></i> Rigueur & autonomie</li>
+                    <li><i class="fas fa-check-circle"></i> Pédagogie</li>
+                    <li><i class="fas fa-check-circle"></i> Résilience</li>
+                    <li><i class="fas fa-check-circle"></i> Orientation résultats</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+    <div class="container">
+        <h2 class="section-title">Me <span>contacter</span></h2>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> pampierre20@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +226 77 87 54 35</p>
+                <p><i class="fas fa-map-marker-alt"></i> Lyon / Ouagadougou</p>
+                <div class="social">
+                    <a href="https://linkedin.com/in/djibrilpierre-pamousso" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/PamPierre" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <form class="contact-form" action="#">
+                <input type="text" placeholder="Votre nom" required />
+                <input type="email" placeholder="Votre email" required />
+                <input type="text" placeholder="Objet" />
+                <textarea placeholder="Votre message..."></textarea>
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+    <div class="container">
+        <p>© 2026 Djibril Pierre Clavair Pamousso · Construit avec ❤️ pour l'Afrique</p>
+        <p style="margin-top:6px; font-size:0.8rem;">
+            <a href="#hero">↑ Retour en haut</a>
+        </p>
+    </div>
+</footer>
+</body>
+</html>
