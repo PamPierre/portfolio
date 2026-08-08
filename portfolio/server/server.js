@@ -7,6 +7,8 @@ import connectDB from "./config/db.js";
 import authRoutes, { profileRouter } from "./routes/authRoutes.js";
 import projectRoutes from "./routes/projectRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
+import experienceRoutes from "./routes/experienceRoutes.js";
+import articleRoutes from "./routes/articleRoutes.js";
 
 dotenv.config();
 connectDB();
@@ -34,6 +36,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/auth/login", sensitiveRouteLimiter);
 app.use("/api/profile", profileRouter);
 app.use("/api/projects", projectRoutes);
+app.use("/api/experiences", experienceRoutes);
+app.use("/api/articles", articleRoutes);
 app.use("/api/contact", sensitiveRouteLimiter, contactRoutes);
 
 app.get("/api/health", (req, res) => {
